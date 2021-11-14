@@ -1,12 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
+import "./App.css"
 
 
-export default class App extends React.Component {
+class Addends extends Component {
     render() {
-        return(
-
-            <h1> Hello World! </h1>
-
-        );
-    }
+        return (
+            <form>
+                <input type="number" />
+            </form>
+        )
+    };
 }
+
+class Total extends Component {
+    render() {
+        return (
+            <h1> Total </h1>
+        )
+    };
+}
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = [];
+    }
+
+    render() {
+        return (
+            <div>
+                <Addends>  </Addends>
+                <Addends>  </Addends>
+                <Total> </Total>
+            </div>
+        )
+    };
+}
+
+export default App;
