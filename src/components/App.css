@@ -1,31 +1,37 @@
 .container {
-    padding: 5%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas: "title title title"
+                         "calc button result";
+    gap: 0px 100px;
+    align-items: center;
+    justify-items: center;
+                         
     position: absolute;
-    flex-direction: column;
     left: 50%;
     top: 50%;
-    align-items: center;
     transform: translate(-50%, -50%);
+
     background-color: #152266;
     border-radius: 10px;
-    justify-content: center;
-    width: 30%;
-    height: 10%;
-    min-width: 600px;
-    min-height: 200px;
+    padding: 50px;
 }
 
-.calc {
+h1 {
+    grid-area: title;
+}
+
+.addends {
+    grid-area: calc;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
  }
 
 input {
     background-color: lightskyblue;
-    border-radius: 20px 0px 20px 0px;
-    margin-left: 20px;
-    margin-right: 20px;
+    border-radius: 20px;
     height: 80px;
     width: 120px;
     text-align: center;
@@ -36,7 +42,9 @@ button {
     width: 70px;
     height: 50px;
     border-radius: 10px 0px;
-    margin-left: 40px;
-    margin-top: 20px;
-    margin-right: 40px;
+    grid-area: button;
+}
+
+h3 {
+    grid-area: result;
 }

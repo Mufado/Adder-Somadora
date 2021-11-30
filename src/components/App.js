@@ -34,16 +34,17 @@ class App extends Component {
             <div className="container">
                 <h1> {title} </h1>
 
-                <div className="calc">
+                <div className="addends">
                     <input type="number" onChange={this.handleGetFirstAddend} />
                     <h2> + </h2>
                     <input type="number" onChange={this.handleGetSecondAddend} />
-                    <form onSubmit={this.handleSumAddends}>
-                        <button type="submit"> = </button>
-                    </form>
-                    <h3> {this.state.sumTotal} </h3>
                 </div>
 
+                <form onSubmit={this.handleSumAddends}>
+                    <button type="submit"> = </button>
+                </form>
+                
+                <h3> {this.state.sumTotal} </h3>
             </div>
         )
     };
