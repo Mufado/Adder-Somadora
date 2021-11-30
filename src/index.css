@@ -1,0 +1,12 @@
+* {
+    font-family: 'Titan One';
+    font-size: 30px;
+    color: aliceblue;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightslategray;
+}
