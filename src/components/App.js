@@ -1,51 +1,41 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css"
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstAddend: '',
-            secondAddend: '',
-            sumTotal: 'Resultado'
-        };
+const App = () => {
+  const [firstAddend, setFirstAddend] = React.useState('');
+  const [secondAddend, setSecondAddend] = React.useState('');
+  const [sumTotal, setSumTotal] = React.useState('Resultado');
 
-        this.handleSumAddends = this.handleSumAddends.bind(this);
-        this.handleGetFirstAddend = this.handleGetFirstAddend.bind(this);
-        this.handleGetSecondAddend = this.handleGetSecondAddend.bind(this);
-    }
+  const handleGetFirstAddend = (e) => {
+    setFirstAddend(Number(e.target.value));
+  }
 
-    handleGetFirstAddend(e) {
-        this.setState({ firstAddend: Number(e.target.value) });
-    }
+  const handleGetSecondAddend = (e) => {
+    setSecondAddend(Number(e.target.value));
+  }
 
-    handleGetSecondAddend(e) {
-        this.setState({ secondAddend: Number(e.target.value) });
-    }
+  const handleSumAddends = (e) => {
+    setSumTotal(firstAddend + secondAddend);
+    e.preventDefault();
+  }
 
-    handleSumAddends(e) {
-        this.setState({ sumTotal: this.state.firstAddend + this.state.secondAddend });
-        e.preventDefault();
-    }
+  const title = process.env.REACT_APP_TITLE;
 
-    render() {
-        const title = process.env.REACT_APP_TITLE;
-        return (
-            <div className="container">
-                <h1> {title} </h1>
-                <div className="addends">
-                    <input type="number" onChange={this.handleGetFirstAddend} />
-                    <input type="number" onChange={this.handleGetSecondAddend} />
-                </div>
+  return (
+    <div className="container">
+      <h1> {title} </h1>
+      <div className="addends">
+        <input type="number" onChange={handleGetFirstAddend} />
+        <input type="number" onChange={handleGetSecondAddend} />
+      </div>
 
-                <form onSubmit={this.handleSumAddends}>
-                    <button type="submit"> + </button>
-                </form>
-                
-                <h3> {this.state.sumTotal} </h3>
-            </div>
-        )
-    };
-}
+      <form onSubmit={handleSumAddends}>
+        <button type="submit"> + </button>
+      </form>
+
+      <h3> {sumTotal} </h3>
+    </div>
+  );
+};
 
 export default App;
